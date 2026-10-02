@@ -1,0 +1,24 @@
+Inicio
+
+	uniCom = 0
+	descuento = 0
+
+
+
+	Escribe "CAJA DE LA TIENDA"
+	Escribe ""
+	Escribe "Introduce el precio unitario en euros (0 para terminar):"
+	Lee precio
+
+	Si precio = 0 entonces
+		Escribe "No se han registrado productos"
+	
+	Sino	
+		Mientras precio < 0 hacer
+			Escribe "El precio no puede ser negativo"
+			Lee precio
+
+		Si precio 
+
+
+Fin
