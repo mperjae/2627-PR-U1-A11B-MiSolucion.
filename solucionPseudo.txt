@@ -1,24 +1,69 @@
 Inicio
 
-	uniCom = 0
+	uniTot = 0
 	descuento = 0
-
+	preTot = 0
+	insta = 0
 
 
 	Escribe "CAJA DE LA TIENDA"
 	Escribe ""
 	Escribe "Introduce el precio unitario en euros (0 para terminar):"
 	Lee precio
-
 	Si precio = 0 entonces
 		Escribe "No se han registrado productos"
+		insta = 1
+		
+
+	Mientras precio < 0 hacer 
+		Escribe "El precio no puede ser negativo"
+		Lee precio
+		Si precio = 0 entonces
+			Escribe "No se han registrado productos"
+			insta = 1
+
+	Si precio > 0 entonces
+		Escribe "Introduce el número de unidades: "
+		Lee unidades
+		Mientras unidades <= 0 hacer
+			Escribe "La cantidad debe ser mayor que 0"
+			Lee unidades
+		uniTot = uniTot + unidades
+		preTot = preTot + (precio * unidades)
 	
-	Sino	
+	Mientras precio != 0 hacer
+		Escribe "Introduce el precio unitario en euros (0 para terminar): "
+		Lee precio
 		Mientras precio < 0 hacer
 			Escribe "El precio no puede ser negativo"
 			Lee precio
-
-		Si precio 
+		Si precio > 0 entonces
+			Escribe "Introduce el número de unidades: "
+			Lee unidades
+			Mientras unidades <= 0 hacer
+				Escribe "La cantidad debe ser mayor que 0"
+				Lee unidades
+			uniTot = uniTot + unidades
+			preTot = preTot + (precio * unidades)
+			
+	Si insta = 0 entonces			
+		Escribe "RESUMEN DE LA COMPRA"
+		Escribe "Unidades compradas: " + uniTot
+		Escribe "Importe antes del descuento: " + preTot + " euros"
+	
+		Si preTot >= 50 entonces
+			Si preTot >= 100 entonces
+				descuento = 10
+			Sino
+				descuento = 5
+	
+		Escribe "Descuento aplicado: " + descuento + " %"
+		descApl = preTot * (descuento / 100)
+	
+		Escribe "Descuento: " + descApl
+		Escribe "Importe final: " + (preTot -  descApl)
+			
+			
 
 
 Fin
